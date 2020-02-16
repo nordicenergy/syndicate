@@ -1,0 +1,24 @@
+{
+  "name": "nordicenergy-loan-ui",
+  "version": "0.0.1",
+  "description": "Banking MVP",
+  "main": "index.js",
+  "dependencies": {
+    "http-server": "^0.11.1",
+    "web3": "^1.0.0-beta.37"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://Jackisch@bitbucket.org/nordicenergy/nordicenergy-loan-ui.git"
+  },
+  "keywords": [
+    "banking"
+  ],
+  "author": "Nordic Energy",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/nordicenergy/nordicenergy-loan-ui#readme"
+}

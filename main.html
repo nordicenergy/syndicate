@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Syndicated Loan Blockchain Application - Nordic Energy</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,600,600i,700,700i,800"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+
+    <!-- JS Load Overlay -->
+    <script src="https://cdn.jsdelivr.net/npm/gasparesganga-jquery-loading-overlay@2.1.6/dist/loadingoverlay.min.js"></script>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/validate.js/0.12.0/validate.min.js"></script>
+
+    <!-- Custom css file -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/datepicker3.css">
+
+    <!-- Favicon icon -->
+    <link rel="icon" href="images/fab_icon.png" type="image/png" sizes="16x16">
+
+
+    <!-- _____________________ Blockchain related files _____________________ -->
+    <!-- Blockchain js file, includes major blockchain functionality -->
+    <script src="js/blockchain.js"></script>
+    <script src="js/blockchain.helper.js"></script>
+    <script src="js/blockchainUI.js"></script>
+    <script src="js/errorHandling.js"></script>
+
+
+    <!-- Contract ABI js -->
+    <script language="javascript" type="text/javascript" src="js\contractABI.js"></script>
+
+    <!-- Web3 min js file beta.37 -->
+    <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0.0-beta.37/dist/web3.min.js"></script>
+
+    <!-- Web3 min js file beta.50
+    <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0.0-beta.50/packages/web3/src/Web3.js"></script> -->
+
+</head>
+<body>
+
+    <div class="container-fluid">
+        <header>
+            <nav>
+                <div class="header_logo float-left">
+                    <a class="navbar-brand" href="">
+                        <img src="images/logotype.png" alt="logo">
+                    </a>
+                </div>
+                <div class="header_content">
+                    <div class="header_mid">
+
+                        <div class="header_network">
+                           <span class="bold"> Blockchain Network: </span><span id="bc_network">None</span>
+                        </div>
+
+                        <div class="dropdown">
+                            <div class="user_profile dropdown-toggle" id="myProfileButton" data-toggle="dropdown">
+                                <div class="user"></div>
+                                <div class="user_text">My Profile</div>
+                            </div>
+                             <div class="dropdown-menu" aria-labelledby="myProfileButton">
+                                <a class="dropdown-item" href="#" value="">Address: <span class="bc_address">undefined</span></a>
+                                <a class="dropdown-item" href="#" value="" data-toggle="modal" data-target="#edit_user_modal">Edit my user data</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header_logout">
+                        <a href="#" onclick="Logout()">Logout</a>
+                    </div>
+                </div>
+
+            </nav>
+        </header>
+        <main>
+            <div class="row">
+
+ <!------------- Left Column ------------>
+                <div class="left-column col-sm-4 no-padding">
+
+                    <!-- Left Panel: Loans (Overview) -->
+
+                    <div class="left_pannel" style="min-height: 10%">
+                        <span class="effect1"></span>
+                        <span class="effect2"></span>
+                        <span class="effect3"></span>
+                        <span class="effect4"></span>
+                        <span class="effect5"></span>
+                        <div class="add_applications" data-toggle="modal" data-target="#applicationModal">
+                            <span class="outer">
+                                <span class="outer_inn">
+                                    <span>+</span>
+                                </span>
+                            </span>
+                            <h4>Propose New Loan</h4>
+                        </div>
+                        <!-- List of Loans / Applications -->
+                        <div class="appplication_section">
+                            <p class="head">Loan Overview</p>
+                            <ul class="nicescroll-box">
+                                <li class="in_review" data-storage-key="id_s1" id="sample_Loan1">
+                                    <div class="lists">
+                                        <h4>Housing Development</h4>
+                                        <div class="status">
+                                            <p>In review</p>
+                                        </div>
+                                        <span class="date">12 March 2019</span>
+                                    </div>
+                                </li>
+                                <li class="wating_for_review" data-storage-key="id_s2" id="sample_Loan2">
+                                    <div class="lists">
+                                        <h4>Sale of an appartment complex</h4>
+                                        <div class="status">
+                                            <span class="radio_check">
+                                                <span class="radio_check_in">
+                                                    <span></span>
+                                                </span>
+                                            </span>
+                                            <p>In review</p>
+                                        </div>
+                                        <span class="date">6 March 2019</span>
+                                    </div>
+                                </li>
+                                <li class="approved" data-storage-key="id_s3" id="sample_Loan3">
+                                    <div class="lists" >
+                                        <h4>Housing Development Leipartstr</h4>
+                                        <div class="status">
+                                            <p>In review</p>
+                                        </div>
+                                        <span class="date">1 Jan 2019</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="token_section">
+                            <div class="container-fluid">
+                                <div class="col-sm-12 text-center">
+                                 <button type="button" class="btn btn-primary center-block" style="width:90%;margin-bottom:20px;" data-toggle="button" aria-pressed="false" onclick="toggleLoans()">
+                                        Toggle Sample Loans
+                                 </button>
+                                 <button type="button" class="btn btn-primary center-block" style="width:90%;margin-bottom:20px;" data-toggle_x="button" aria-pressed="false" onclick="logLoans()">
+                                        Refresh Loans <br> (Reload from Blockchain)
+                                 </button>
+                                 <button type="button" class="btn btn-primary center-block" style="width:90%;margin-bottom:20px;" aria-pressed="false" data-toggle="modal" data-target="#registerUser" >
+                                        Register a new user
+                                 </button>
+
+                                 <!-- User Search Dropdown -->
+                                  <!--
+                                  <div class="user_dropdown">
+                                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdown_users" data-toggle="dropdown" aria-haspopup="true"
+                                         aria-expanded="false">
+                                         Show all users
+                                     </button>
+                                     <div id="menu" class="dropdown-menu" aria-labelledby="dropdown_users">
+                                       <div style="position:relative;z-index:1000">
+                                         <form class="px-4 py-2">
+                                             <input type="search" class="form-control" id="searchField" placeholder="Search" autofocus="autofocus">
+                                         </form>
+                                         <div id="menuItems"></div>
+                                         <div id="empty" class="dropdown-header">No users found</div>
+                                       </div>
+                                     </div>
+                                 </div>
+                               -->
+                                                               </div>
+                                <div id="sc-loans"></div>
+                            </div>
+
+                            <!-- <ul>
+                                <li>
+                                    <div class="active_token">
+                                        <h4>Housing Complex Wilmersdorf</h4>
+                                        <div class="token_detail">
+                                            <p>Loan amount: <span>27,000,000 €</span></p>
+                                            <p>Outstanding tokens: <span>27,000,000</span></p>
+                                            <p>Owned Tokens: <span>2,323,329 (x %)</span></p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="active_token">
+                                        <h4>Appartment Eppendorf</h4>
+                                        <div class="token_detail">
+                                            <p>Loan amount: <span>1,440,000 €</span></p>
+                                            <p>Outstanding tokens: <span>1,440,000</span></p>
+                                            <p>Owned Tokens: <span>1,223,329 (x %)</span></p>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul> -->
+                        </div>
+                    </div>
+                </div>
+
+ <!------------- Center Column ------------>
+  <div class="col-sm-8 ">
+    <div class="row">
+                 <!------------- Tab Menu ------------>
+                <!-- In this section the tabs for the central column are defined -->
+                <div class="col-sm-12 col-md-7 no-padding">
+                    <h3 id="select-info" class="text-center mt-5">Please select a loan from the panel on the left.</h3>
+
+                    <div id="form-wrapper" class="main_application d-none">
+
+                        <h3>Loan Data: <span class="heading_text"></span></h3>
+
+                        <ul id="tabs" class="nav nav-tabs" role="tablist">
+                            <li class="nav-item">
+                                <a id="tab-A" href="#pane-A" class="nav-link active" data-toggle="tab" role="tab">Key Data</a>
+                            </li>
+                            <li class="nav-item">
+                                <a id="tab-B" href="#pane-B" class="nav-link" data-toggle="tab" role="tab">Involved Parties</a>
+                            </li>
+                            <li class="nav-item">
+                                <a id="tab-C" href="#pane-C" class="nav-link" data-toggle="tab" role="tab" >Object Details</a>
+                            </li>
+                            <li class="nav-item">
+                                <a id="tab-D" href="#pane-D" class="nav-link" data-toggle="tab" role="tab">Loan Details</a>
+                            </li>
+                            <li class="nav-item">
+                                <a id="tab-E" href="#pane-E" class="nav-link" data-toggle="tab" role="tab">Documents</a>
+                            </li>
+                        </ul>
+
+                        <!------------- Tab Content  (Forms:  A B C D E) ------------>
+                        <div id="tab_contents" class="tab-content" role="tablist">
+
+                            <!-- Info: CSS Bootstrap Classes determine which tab to show, predefined in html -->
+
+                            <!-- ---- ---- [A] ---- ---- -->
+                            <div id="pane-A" class="card tab-pane fade active show" role="tabpanel" aria-labelledby="tab-A">
+                                <!-- <div class="card-header" role="tab" id="heading-A">
+                                    <h5 class="mb-0">
+
+                                        <a data-toggle="collapse" href="#collapse-A" aria-expanded="true"
+                                            aria-controls="collapse-A">
+                                        </a>
+                                    </h5>
+                                </div> -->
+
+                                <!-- Note: New place of `data-parent` -->
+                                <div id="collapse-A" class="collapse show" data-parent="#content" role="tabpanel"
+                                    aria-labelledby="heading-A">
+                                    <div class="loan_detail">
+                                        <form>
+
+                                          <div class="form-label-group float-lab input_float_lbl">
+                                                <input type="text" id="loanName" class="form-control heading_text"
+                                                    name="loanName" required>
+                                                <label for="loanName">Name of Loan</label>
+                                            </div>
+
+                                            <div class="form-label-group float-lab input_float_lbl">
+                                                <input type="text" id="loanPurpose" class="form-control"
+                                                    name="Purpose" required>
+                                                <label for="purpose">Purpose</label>
+                                            </div>
+
+                                            <div class="form-label-group float-lab input_float_lbl">
+                                                <input type="text" id="loanId" class="form-control"
+                                                    name="loanId" required disabled>
+                                                <label for="loanId">Loan Id (on Blockchain)</label>
+                                            </div>
+
+                                            <div class="form-label-group float-lab input_float_lbl">
+                                                <input type="text" id="state" class="form-control"
+                                                    name="state" required disabled>
+                                                <label for="state">Status</label>
+                                            </div>
+
+                                            <div class="form-label-group float-lab input_float_lbl">
+                                                <input type="text" id="revisionNumber" class="form-control"
+                                                    name="revisionNumber" required disabled>
+                                                <label for="revisionNumber">Revision Number</label>
+                                            </div>
+
+                                            <div class="form-label-group float-lab input_float_lbl">
+                                                <input type="text" id="regParty" class="form-control"
+                                                    name="regParty" value="" required disabled>
+                                                <label for="regParty">Registering party</label>
+                                            </div>
+
+
+                                            <div class="form-label-group float-lab input_float_lbl">
+                                                  <input type="text" id="loanDate" class="form-control"
+                                                      name="loanDate" required disabled>
+                                                  <label for="loanDate">Date of Registration</label>
+                                              </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+                             <!-- ---- ---- [B] ---- ---- -->
+                            <div id="pane-B" class="card tab-pane fade" role="tabpanel" aria-labelledby="tab-B">
+                                <!-- <div class="card-header" role="tab" id="heading-B">
+                                    <h5 class="mb-0">
+                                        <a class="collapsed" data-toggle="collapse" href="#collapse-B"
+                                            aria-expanded="false" aria-controls="collapse-B">
+                                            Involved Parties
+                                        </a>
+                                    </h5>
+                                </div> -->
+                                <div id="collapse-B" class="collapse" data-parent="#content" role="tabpanel"
+                                    aria-labelledby="heading-B">
+                                    <div class="loan_detail">
+                                        <form>
+                                            <div class="form-label-group">
+                                                <div class="customDropdown dd_role" id="participant_dropdown">
+                                                    <span class="valueHolder" >Select Participant</span>
+                                                    <span class="valueHolder1" name="part_selection"></span>
+                                                    <div class="dropContainer" id="involved_dropdown"></div>
+                                                </div>
+                                            </div>
+                                            <!-- <div class="involved_selection" id="loan_users">
+                                                Here, usersare added when loans are loaded
+                                            </div> -->
+                                        <section id="user_data_fields">
+                                            <div class="form-label-group float-lab">
+                                                <input type="text" id="pt_role" name="pt_role" class="form-control"
+                                                    required disabled>
+                                                <label for="pt_role">Role</label>
+                                            </div>
+                                            <div class="form-label-group float-lab">
+                                                <input type="text" id="pt_name" name="pt_name" class="form-control"
+                                                    required disabled>
+                                                <label for="pt_name">Name</label>
+                                            </div>
+                                            <div class="form-label-group float-lab">
+                                                <input type="text" id="pt_address" name="pt_address" class="form-control"
+                                                    required disabled>
+                                                <label for="pt_address">Address</label>
+                                            </div>
+                                        </section>
+                                        </form>
+                                        <div class="col-sm-12 mb-3 text-center">
+                                        <button data-toggle="modal" data-target="#add_loanuser_modal" type="button"
+                                        class="primary_btn">Add a new user</button>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                             <!-- ---- ---- [C] ---- ---- -->
+                            <div id="pane-C" class="card tab-pane fade" role="tabpanel" aria-labelledby="tab-C">
+                                <!-- <div class="card-header" role="tab" id="heading-C">
+                                    <h5 class="mb-0">
+                                        <a class="collapsed" data-toggle="collapse" href="#collapse-C"
+                                            aria-expanded="false" aria-controls="collapse-C">
+                                            Object Details
+                                        </a>
+                                    </h5>
+                                </div> -->
+                                <div id="collapse-C" class="collapse" role="tabpanel" data-parent="#content"
+                                    aria-labelledby="heading-C">
+                                    <div class="loan_detail">
+                                        <form>
+                                            <div class="form-label-group float-lab input_float_lbl">
+                                                <input type="text" id="object_descript" class="form-control"
+                                                    name="object_descript" required>
+                                                <label for="object_descript">Description of the object</label>
+                                            </div>
+                                            <div class="form-label-group float-lab input_float_lbl">
+                                                <input type="text" id="total_area" class="form-control"
+                                                    name="total_area" required>
+                                                <label for="total_area">Total area outdoor + indoor</label>
+                                            </div>
+                                            <div class="form-label-group float-lab input_float_lbl">
+                                                <input type="text" id="usable_area" name="usable_area"
+                                                    class="form-control" required>
+                                                <label for="usable_area">Usable area (net floor space)</label>
+                                            </div>
+                                            <div class="form-label-group float-lab input_float_lbl">
+                                                <input type="text" id="outdoor_area" class="form-control"
+                                                    name="outdoor_area" required>
+                                                <label for="outdoor_area">Total area outdoor</label>
+                                            </div>
+                                            <div class="form-label-group float-lab input_float_lbl">
+                                                <input type="text" id="object_price" class="form-control"
+                                                    name="object_price" required>
+                                                <label for="object_price">Purchase price of object</label>
+                                            </div>
+                                            <div class="form-label-group float-lab input_float_lbl">
+                                                <input type="text" id="price_sqm" class="form-control"
+                                                    name="price_sqm" required>
+                                                <label for="price_sqm">Price per square meter</label>
+                                            </div>
+
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+                             <!-- ---- ---- [D] ---- ---- -->
+
+                            <div id="pane-D" class="card tab-pane fade" role="tabpanel"
+                                aria-labelledby="tab-D">
+                               <!--  <div class="card-header" role="tab" id="heading-D">
+                                    <h5 class="mb-0">
+                                        <a class="collapsed" data-toggle="collapse" href="#collapse-D"
+                                            aria-expanded="false" aria-controls="collapse-D">
+                                            Loan Details
+                                        </a>
+                                    </h5>
+                                </div>-->
+                                <div id="collapse-D" class="collapse" role="tabpanel" data-parent="#content"
+                                    aria-labelledby="heading-D">
+                                    <div class="loan_detail">
+                                        <form>
+                                            <div id="loan_amounts">
+                                                <!-- Here, fields are added by function loadParties() -->
+                                            </div>
+
+
+                                            <div class="form-label-group float-lab">
+                                                <input type="text" id="total_value" name="total_value"
+                                                    class="form-control" required disabled>
+                                                <label for="total_value">Total amount</label>
+                                                <span class="euro">€</span>
+                                            </div>
+
+                                            <div class="form-label-group float-lab">
+                                                <input type="number" id="interest_rate" name="interest_rate" class="form-control"
+                                                    required>
+                                                <label for="interest_rate">Interest rate</label>
+                                                <span class="euro">%</span>
+
+                                            </div>
+                                            <div class="form-label-group float-lab">
+                                                <input type="text" id="payout_structure" name="payout_structure"
+                                                    class="form-control" required>
+                                                <label for="payout_structure">Loan Payout Structure</label>
+                                                <!-- <span class="error_text">Text Error</span> -->
+                                            </div>
+                                            <div class="form-label-group float-lab">
+                                                <input type="text" id="repay_structure" class="form-control"
+                                                    name="repay_structure" required>
+                                                <label for="repay_structure">Loan Repayment Structure</label>
+                                                <!-- <span class="error_text">Text Error</span> -->
+                                            </div>
+                                            <div class="form-label-group float-lab">
+                                                <input type="text" id="loan_start" class="form-control date_picker"
+                                                    name="loan_start" required>
+                                                <label for="loan_start">Loan Start</label>
+                                                <!-- <span class="error_text">Text Error</span> -->
+                                            </div>
+                                            <div class="form-label-group float-lab">
+                                                <input type="text" id="loan_duration" class="form-control" name="loan_duration"
+                                                    required>
+                                                <label for="loan_duration">Loan Duration</label>
+                                                <!-- <span class="error_text">Text Error</span> -->
+                                            </div>
+
+                                        </form>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                             <!-- ---- ---- [E] ---- ---- -->
+                            <div id="pane-E" class="card tab-pane fade" role="tabpanel" aria-labelledby="tab-E">
+                                <!-- <div class="card-header" role="tab" id="heading-E">
+                                    <h5 class="mb-0">
+                                        <a class="collapsed" data-toggle="collapse" href="#collapse-E"
+                                            aria-expanded="false" aria-controls="collapse-E">
+                                            Documents
+                                        </a>
+                                    </h5>
+                                </div> -->
+                                <div id="collapse-E" class="collapse" role="tabpanel" data-parent="#content"
+                                    aria-labelledby="heading-E">
+                                    <div class="loan_detail">
+                                        <form>
+                                            <div class="form-label-group float-lab">
+                                                <input type="text" id="Expose" class="form-control" name="Expose"
+                                                    required disabled>
+                                                <label for="Expose">Expose</label>
+                                            </div>
+                                            <div class="file-upload">
+                                                <div class="file-select">
+                                                    <div class="file-select-button" id="fileName">Upload Term Sheet</div>
+                                                    <div class="file-select-name" id="noFile">No file chosen...</div>
+                                                    <input type="file" name="Time Sheet" id="chooseFile">
+                                                </div>
+                                            </div>
+                                            <div class="form-label-group float-lab">
+                                                <input type="text" id="addocuments" class="form-control"
+                                                    name="Additional document" required disabled>
+                                                <label for="addocuments">Additional documents</label>
+                                            </div>
+
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End of form-wrapper -->
+
+                        <!-------------  Buttons ------------>
+
+                        <div class="container">
+                                <h6 id="registration_info" class="text-center pt-3"></h6>
+                                <div class="group_btns pl-4 pr-4">
+                                    <button data-toggle_x="modal" data-target="#update" type="button"
+                                        class="ghost_btn"
+                                        onclick="updateLoanInBrowser()">Save Changes</button>
+
+                                    <button onclick="approveLoan()" type="button" id="btn_approveLoan"
+                                        class="ghost_btn">Approve</button>
+                                </div>
+
+                                <div class="reject_btn status_reject p-2">
+                                    <a data-toggle="modal" data-target="#delete_loan_modal" href="">Reject and delete loan
+                                        application</a>
+                                </div>
+
+                                <button data-toggle="modal" id="writeToChain" type="button" onclick="writeLoan()"
+                                class="ghost_btn" style="margin: 0 auto; display:block; margin-bottom: 1rem;">Create Loan on Blockchain</button>
+
+                                <button data-toggle="modal" id="updateToChain" type="button" onclick="updateLoanOnChain()"
+                                class="ghost_btn" style="margin: 0 auto; display:block; margin-bottom: 1rem;">Update Loan on Blockchain</button>
+                            </div>
+                    </div>
+
+                </div>
+
+ <!------------- Right Column ------------>
+
+                <div class="col-sm-12 col-md-5 no-padding right_column">
+                    <div class="approval " id="approval_status">
+                        <h3>Approval Status</h3>
+
+                        <div class="approval_parent">
+                            <div class="approval_check">
+                                <!-- Here, users are added when loans are loaded -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="History_pannel">
+                        <h3>Transaction Status </h3>
+                        <ul id="tx_current" class="d-none">
+                            <li>
+                                <div class="histroy_detail">
+                                    <div class="top_section">
+                                        <p class="date" id="tx-date"></p>
+                                    </div>
+                                    <p id="tx_text">No current transaction</p>
+                                </div>
+                            </li>
+                        </ul>
+                        <h3>Transaction History </h3>
+                        <ul id="tx_history">
+                            <li id="tx_info_no_tx">
+                                <div class="histroy_detail" >
+                                    <p class="banks_application">No transactions recorded</p>
+                                </div>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+  </div>
+    <!------------------------------------------------------------>
+    <!-------------------------  Modals  ------------------------->
+    <!------------------------------------------------------------>
+
+    <!------------- Edit user data  ------------>
+
+
+    <!-- Modal -->
+    <form class="modal fade" id="edit_user_modal" tabindex="-1" role="dialog" aria-labelledby="edit_user_modal"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="dialog">
+
+        <!-- Modal Content -->
+        <div class="modal-content">
+            <div class="modal_para">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h3>Edit my account data</h3>
+            <br>
+            </div>
+            <div class="modal-body">
+
+                <div class="form-label-group float-lab">
+                    <input type="text" id="modal_add_userName2" class="form-control"
+                    name="modal_add_userName2" required>
+                    <label for="modal_add_userName2">Name</label>
+                </div>
+                <div style="margin-bottom:20px;">
+                    <input type="radio" id="modal_add_userRole_lender2"  name="radios_role2" value="lender" required>
+                    <label for="modal_add_userRole_lender2">Lender</label>
+
+                    <input type="radio" id="modal_add_userRole_borrower2"  name="radios_role2" value="borrower" required>
+                    <label for="modal_add_userRole_borrower2">Borrower</label>
+                </div>
+                <div class="form-label-group float-lab input_float_lbl">
+                    <input type="text" id="modal_add_userAddr2" class="form-control bc_address"
+                    placeholder_x="" name="modal_add_userAddr2" required disabled>
+                    <label for="modal_add_userAddr">Address</label>
+                </div>
+
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    </button>
+                    <!-- <label for="comment">Term Sheet</label> -->
+                </div>
+                <div style="display:flex;align-items:center;flex-direction:column;">
+                <div class="infotext">Info: Here you can register new users on the smart contract,
+                     before they register themselves. </div>
+                <div class="update_btn">
+                    <button onclick="updateUserData()" type="submit" data-dismiss="modal"
+                        class="primary_btn text-center">Update Data on Blockchain</button>
+                    </div>
+                  </div>
+            </div>
+        </div>
+    </form>
+
+    <!------------- Register a new User  ------------>
+
+    <!-- Modal -->
+    <form class="modal fade" id="registerUser" tabindex="-1" role="dialog"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="dialog">
+
+        <!-- Modal Content -->
+        <div class="modal-content">
+            <div class="modal_para">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h3>Register a new user</h3>
+            <br>
+            </div>
+            <div class="modal-body">
+
+                <div class="form-label-group float-lab">
+                    <input type="text" id="name" class="form-control"
+                    name="name">
+                    <label for="name">Name</label>
+                    <div class="messages"></div>
+                </div>
+                <div class="form-label-group" style="margin-bottom:20px;">
+                    <input type="radio" id="lender"  name="role" value="lender">
+                    <label for="lender">Lender</label>
+
+
+                    <input type="radio" id="borrower"  name="role" value="borrower">
+                    <label for="borrower">Borrower</label>
+                    <div class="messages"></div>
+                </div>
+                <div class="form-label-group float-lab">
+                    <input type="text" id="address" class="form-control"
+                    placeholder_x="" name="address">
+                    <label for="address">Address</label>
+                    <div class="messages"></div>
+                </div>
+
+                </div>
+                <div style="display:flex;align-items:center;flex-direction:column;">
+                <div class="infotext">Info: Here you can register new users on the smart contract,
+                     before they register themselves. </div>
+                  <div class="update_btn">
+                    <button onclick="userRegistration()" type="button" class="primary_btn text-center">Register on Blockchain</button>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+        <!------------- Delete Modal ------------>
+    <div class="modal fade" id="delete_loan_modal" tabindex="-1" role="dialog"
+         aria-hidden="true">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+
+                <div class="modal_para">
+                    <h3>Are you sure you want to reject and delete the loan?</h3>
+                </div>
+                <div class="group_btns pl-4 pr-4">
+                    <button type="button" class="primary_btn" data-dismiss="modal" aria-label="Close" onclick="deleteLoan()">Yes</button>
+                    <button type="button" class="ghost_btn" data-dismiss="modal" aria-label="Close">No</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!------------- Update Modal ------------>
+    <div class="modal fade" id="update" tabindex="-1" role="dialog"
+        aria-hidden="true">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal_para">
+                    <h3>Comment on changes</h3>
+                </div>
+                <div class="form-label-group float-lab">
+                    <textarea type="text" id="comment" class="form-control" placeholder="Add comments (optional)"
+                        required></textarea>
+                    <!-- <label for="comment">Term Sheet</label> -->
+                </div>
+                <div class="update_btn"><button type="button" data-dismiss="modal" class="primary_btn"
+                        onclick="storeComment();">Update</button></div>
+            </div>
+        </div>
+    </div>
+
+    <!------------- Add / Propose / Create new Loan Modal ------------>
+
+    <!-- Modal -->
+    <div class="modal fade" id="applicationModal" tabindex="-1" role="dialog"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="dialog">
+
+            <!-- Modal Content -->
+            <div class="modal-content">
+                <div class="modal_para">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h3>Create a new Loan</h3>
+                </div>
+                <div class="modal-body">
+                <div class="form-label-group float-lab">
+                    <input type="text" id="add_Loan" class="form-control"
+                        placeholder="Name of Loan" required>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    <!-- <label for="comment">Term Sheet</label> -->
+                </div>
+                <div class="update_btn"><button onclick="addItem()" type="button" data-dismiss="modal"
+                        class="primary_btn">Add</button></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!------------- Add new User to loan modal ------------>
+
+    <!-- Modal -->
+    <form class="modal fade" id="add_loanuser_modal" tabindex="-1" role="dialog"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="dialog">
+
+            <!-- Modal Content -->
+            <div class="modal-content">
+                <div class="modal_para">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h3>Add a new user (participant) to the loan</h3>
+                </div>
+                <div class="modal-body">
+
+                <!-- User Search Dropdown -->
+                    <div style_x="display:flex;justify-content: center">
+                    <div class="user_dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdown_users_2" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                            Search user by name
+                        </button>
+                        <div id="menu" class="dropdown-menu" aria-labelledby="dropdown_users">
+                            <form class="px-4 py-2">
+                                <input type="search" class="form-control" id="searchField" placeholder="Search" autofocus="autofocus">
+                            </form>
+                            <div id="menuItems_2"></div>
+                            <div id="empty_2" class="dropdown-header">No users found</div>
+                        </div>
+                    </div>
+                </div>
+
+                    <div class="form-label-group float-lab">
+                        <input type="text" id="input_add_user" class="form-control"
+                            placeholder_x="Account address of user" name="address" required>
+                            <label for="address">Address</label>
+                            <div class="messages"></div>
+                    </div>
+                    <div class="infotext">If you are the creator (registrar) of the loan, you can add new participants (e.g. other lenders)</div>
+                    <div class="update_btn">
+                        <button onclick="addUserToLoan()" type="button" data-dismiss_x="modal"
+                            class="primary_btn">Add User to Loan (on Blockchain)</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </form>
+
+
+    <!------------- Comment Details Modal ------------>
+
+    <div class="modal fade" id="commentpop" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal_para">
+                    <h3>commented details</h3>
+                </div>
+                <div class="comment_list_sec nicescroll-box">
+                    <p class="comments_feild">
+                        comments
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <!-- Custom js file -->
+    <script>
+
+        $(function () {
+            $(".nicescroll-box").niceScroll({
+                scrollspeed: 40
+                //A smaller value increases the scroll speed. A larger value makes the scroll speed slower.
+
+            });
+        });
+    </script>
+
+    <script src="js/jquery.nicescroll.js"></script>
+    <script src="js/userDropDown.js"></script>
+    <script src="js/custom.js"></script>
+    <script src="js/bootstrap-datepicker.js"></script>
+
+</body>
+</html>

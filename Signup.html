@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Syndicated Loan Blockchain Application - Nordic Energy</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,600,600i,700,700i,800" rel="stylesheet">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+
+    <!-- JS Load Overlay -->
+    <script src="https://cdn.jsdelivr.net/npm/gasparesganga-jquery-loading-overlay@2.1.6/dist/loadingoverlay.min.js"></script>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/validate.js/0.12.0/validate.min.js"></script>
+
+    <!-- Custom css file -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/datepicker3.css">
+
+    <script src="js/userDropDown.js"></script>
+
+    <!-- Custom js file -->
+    <script src="js/custom.js"></script>
+
+
+    <!-- Favicon icon -->
+    <link rel="icon" href="images/fab_icon.png" type="image/png" sizes="16x16">
+
+    <!-- _____________________ Blockchain related files _____________________ -->
+    <!-- Blockchain js file, includes major blockchain functionality -->
+    <script src="js/blockchain.js"></script>
+    <script src="js/blockchain.helper.js"></script>
+    <script src="js/blockchainUI.js"></script>
+    <script src="js/errorHandling.js"></script>
+
+    <!-- Contract ABI js -->
+    <script language="javascript" type="text/javascript" src="js\contractABI.js"></script>
+
+    <!-- Web3 min js file beta.37 -->
+    <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0.0-beta.37/dist/web3.min.js"></script>
+    <!-- <script src="js/Web3.1.0.0-beta.48.js"></script> -->
+
+
+</head>
+
+<body>
+
+    <div class="container-fluid">
+        <div class="signup">
+            <div class="row">
+                <div class="col-sm-6 no-padding">
+                    <div class="left-bg">
+                        <span class="signup-head">Syndicated
+                            Loan
+                            Blockchain
+                            Application
+                        </span>
+                    </div>
+                </div>
+                <div class="col-sm-6 no-padding">
+                    <div class="signup-form">
+                        <div class="signup-form-content">
+                            <form name="formsbm" id="signupForm">
+                                <div class="row">
+                                    <div class="col-sm-6 pad-rt-4">
+                                        <div class="form-label-group float-lab input_float_lbl">
+                                            <input type="text" id="firstName" name="firstName" class="form-control"
+                                                required>
+                                            <label for="firstName">First name</label>
+                                            <!-- <span class="error_text">Text Error</span> -->
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 pad-lt-4">
+                                        <div class="form-label-group float-lab input_float_lbl">
+                                            <input type="text" id="lastName" name="lastName" class="form-control"
+                                                required>
+                                            <label for="lastName">Last name</label>
+                                            <!-- <span class="error_text">Text Error</span> -->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-label-group float-lab input_float_lbl">
+                                    <input type="text" id="companyName" name="companyName" class="form-control"
+                                        required>
+                                    <label for="companyName">Name of Institution / Company *</label>
+                                    <div class="messages"></div>
+                                    <!-- <span class="error_text">Text Error</span> -->
+                                </div>
+
+                                <div class="form-label-group float-lab input_float_lbl">
+                                    <input type="text" id="signUpAddress" name="signUpAddress" class="form-control bc_address" value=""
+                                        required>
+                                    <label for="signUpAddress">Public Blockchain ID</label>
+                                </div>
+                                <div class="form-label-group" id="signUpDropDownWrapper">
+                                    <div class="customDropdown" id="signUpDropDown">
+                                        <span class="valueHolder">Role</span>
+                                        <span class="valueHolder1"></span>
+                                    </div>
+                                    <div class="messages"></div>
+                                </div>
+                                <div class="text-center">
+                                <button onclick="submitFormData();" title="Submit Data" type="button" id="submit_btn" class="primary_btn"> Create Account</button>
+                                <a href="main.html" class="d-block p-2">Skip this step</a>
+                                    <p id="errMsg" style="padding: 10px;"></p>
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Datepicker js file -->
+    <script src="js/bootstrap-datepicker.js"></script>
+
+
+    </body>
+</html>
