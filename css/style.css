@@ -452,7 +452,7 @@ header nav .header_logo:before {
     height: 72px;
     top: 0;
     right: 0;
-    background: #d9d9d9;
+    background: #cccccc;
 }
 
 @media only screen and (max-width: 576px) {
@@ -557,7 +557,7 @@ header nav .header_content .header_logout:before {
     content: "";
     width: 1px;
     height: 72px;
-    background: #d9d9d9;
+    background: #cccccc;
     top: 0px;
     right: auto;
     bottom: auto;
@@ -883,7 +883,7 @@ span.valueHolder1 {
     background: -moz-linear-gradient( top, rgba(77, 77, 77, 0.79) 0%, rgba(126, 126, 126, 0.79) 100%);
     background: -webkit-linear-gradient( top, rgba(88, 88, 88, 0.79) 0%, rgba(230, 230, 230, 0.79) 100%);
     background: linear-gradient( to bottom, rgba(128, 128, 128, 0.79) 0%, rgba(39, 162, 255, 0.79) 100%);
-    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#c90063ae', endColorstr='#c927a2ff', GradientType=0);
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#e6b800', endColorstr='#e6b800', GradientType=0);
 }
 
 .signup .left-bg .signup-head {
@@ -1315,7 +1315,7 @@ span.valueHolder1 {
 }
 
 .main_application .nav-tabs {
-    border-bottom: 1px solid #d9d9d9;
+    border-bottom: 1px solid #cccccc;
     padding-left: 30px;
     white-space: nowrap;
     display: block !important;
@@ -1362,7 +1362,7 @@ span.valueHolder1 {
     bottom: 0;
     left: 0;
     position: absolute;
-    background: #e6e6e6;
+    background: #d9d9d9;
     transition: all 0.4s ease;
 }
 
@@ -1385,7 +1385,7 @@ span.valueHolder1 {
     bottom: 0;
     left: 0;
     position: absolute;
-    background: #e6e6e6;
+    background: #d9d9d9;
 }
 
 .main_application .tab-content {
@@ -1394,7 +1394,7 @@ span.valueHolder1 {
 
 .main_application .tab-content .loan_detail {
     padding: 55px 36px 39px;
-    border-bottom: 1px solid #d9d9d9;
+    border-bottom: 1px solid #cccccc;
 }
 
 @media only screen and (max-width: 991px) {
@@ -1526,7 +1526,7 @@ span.valueHolder1 {
     content: "";
     -webkit-appearance: none;
     background-color: transparent;
-    border: 2px solid #e6e6e6;
+    border: 2px solid #d9d9d9;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05);
     padding: 6px;
     display: inline-block;
@@ -1587,7 +1587,7 @@ span.valueHolder1 {
 
 .approval_check .form-group input:checked+label:before {
     content: "";
-    background: #e6e6e6;
+    background: #d9d9d9;
 }
 
 input[type="number"]::-webkit-outer-spin-button,
@@ -1634,7 +1634,7 @@ input[type="number"] {
     content: "";
     width: 12px;
     height: 12px;
-    background: #e6e6e6;
+    background: #d9d9d9;
     position: absolute;
     top: 3px;
     left: 3px;
@@ -1743,7 +1743,7 @@ input[type="number"] {
     -webkit-border-radius: 50%;
     border-radius: 50%;
     background-clip: padding-box;
-    border: 1px solid #c7d0eb;
+    border: 1px solid #e6e6e6;
     top: 22px;
     right: auto;
     bottom: auto;
@@ -1797,7 +1797,7 @@ input[type="number"] {
 
 .History_pannel ul li .histroy_detail .change_loan .change-amt-head:before {
     content: "";
-    background: #d9d9d9;
+    background: #cccccc;
     width: 100%;
     top: 8px;
     right: auto;
@@ -1809,7 +1809,7 @@ input[type="number"] {
 
 .History_pannel ul li .histroy_detail .change_loan .change-amt-head:after {
     content: "";
-    background: #d9d9d9;
+    background: #cccccc;
     width: 16px;
     height: 1px;
     top: 8px;
@@ -1891,7 +1891,7 @@ input[type="number"] {
 }
 
 .History_pannel ul li .comments_feild {
-    border: 1px solid #d9d9d9;
+    border: 1px solid #cccccc;
     -webkit-border-radius: 6px;
     border-radius: 6px;
     background-clip: padding-box;
@@ -1969,7 +1969,7 @@ input[type="number"] {
     content: "";
     width: 1px;
     height: 100%;
-    background: #c7d0eb;
+    background: #e6e6e6;
     top: 32px;
     right: auto;
     bottom: auto;
@@ -2016,7 +2016,7 @@ input[type="number"] {
     -webkit-border-radius: 50%;
     border-radius: 50%;
     background-clip: padding-box;
-    border: 1px solid #c7d0eb;
+    border: 1px solid #e6e6e6;
     top: 22px;
     right: auto;
     bottom: auto;

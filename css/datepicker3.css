@@ -41,7 +41,7 @@
     border-right: 7px solid transparent;
     border-bottom: 7px solid #ccc;
     border-top: 0;
-    border-bottom-color: rgba(0, 0, 0, 0.2);
+    border-bottom-color: rgba(230, 184, 0;
     position: absolute;
 }
 
@@ -155,7 +155,7 @@
 .datepicker table tr td.today.disabled:hover {
     color: #000000;
     background-color: #ffdb99;
-    border-color: #e49400;
+    border-color: #cca300;
 }
 
 .datepicker table tr td.today:hover,
@@ -259,7 +259,7 @@ fieldset[disabled] .datepicker table tr td.today:hover.active,
 fieldset[disabled] .datepicker table tr td.today.disabled.active,
 fieldset[disabled] .datepicker table tr td.today.disabled:hover.active {
     background-color: #ffdb99;
-    border-color: #ffb733;
+    border-color: #ffcc00;
 }
 
 .datepicker table tr td.today:hover:hover {
@@ -399,7 +399,7 @@ fieldset[disabled] .datepicker table tr td.range.today.disabled:hover.active {
     color: #ffffff;
     background-color: #999999;
     border-color: #555555;
-    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    text-shadow: 0 -1px 0 rgba(255, 204, 05);
 }
 
 .datepicker table tr td.selected:hover,
@@ -513,7 +513,7 @@ fieldset[disabled] .datepicker table tr td.selected.disabled:hover.active {
     color: #ffffff;
     background-color: #ecbd00;
     border-color: #c09a00;
-    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    text-shadow: 0 -1px 0 rgba(255, 204, 0);
 }
 
 .datepicker table tr td.active:hover,
@@ -649,7 +649,7 @@ fieldset[disabled] .datepicker table tr td.active.disabled:hover.active {
     color: #ffffff;
     background-color: #f5c400;
     border-color: #b69100;
-    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    text-shadow: 0 -1px 0 rgba(255, 204, 05);
 }
 
 .datepicker table tr td span.active:hover,
@@ -832,11 +832,11 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.active {
     list-style: none;
     background-color: #ffffff;
     border: 1px solid #ccc;
-    border: 1px solid rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 204, 0);
     border-radius: 5px;
-    -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-    -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: 0 5px 10px rgba(255, 204, 0);
+    -moz-box-shadow: 0 5px 10px rgba(255, 204, 0);
+    box-shadow: 0 5px 10px rgba(255, 204, 0);
     -webkit-background-clip: padding-box;
     -moz-background-clip: padding;
     background-clip: padding-box;
