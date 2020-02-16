@@ -13,12 +13,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/nordicenergy/syndicate.git"
+    "url": "git+https://nordicenergy/nordicenergy-loan-ui.git"
   },
   "keywords": [
     "banking"
   ],
   "author": "Nordic Energy",
   "license": "ISC",
-  "homepage": "https://syndicate.nordicenergy.co"
+  "homepage": "https://bitbucket.org/nordicenergy/nordicenergy-loan-ui#readme"
 }
