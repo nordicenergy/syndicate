@@ -1,4 +1,4 @@
-pragma solidity ^0.5.2;
+pragma solidity >=0.5.0 <0.7.0;
 
 // necessary because some functions return structs
 pragma experimental ABIEncoderV2;
