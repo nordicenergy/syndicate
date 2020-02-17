@@ -4,9 +4,9 @@ pragma solidity >=0.5.2 <0.7.0;
 pragma experimental ABIEncoderV2;
 
 /*
-Contract for Syndicate Loan MVP by Lition Technologie AG - www.lition.io
+Contract for Syndicate Loan MVP by Nordic Energy - www.nordicenetgy.co
 version 0.2.3.5
-creator: Marcel Jackisch
+Author: BitFinance Co., Ltd.
 */
 
 contract SynLoanData {
