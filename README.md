@@ -21,6 +21,5 @@ Currently, the dApp is in an early MVP-stage, version 0.1.
 
 
 ### Contact ###
-Please get in touch with us via our Telegram group: https://t.me/NordicEnergyEnergy
-or send an email to marcel.jackisch@liton.de
-
+Please get in touch with us via our Telegram group: https://t.me/nordicenergy
+or send an email to info@nordicenergy.io
